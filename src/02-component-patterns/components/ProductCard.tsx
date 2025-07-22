@@ -1,0 +1,48 @@
+import styles from '../styles/styles.module.css';
+import noImage from '../assets/no-image.jpg';
+import { useProducts } from '../hooks/useProducts';
+
+interface Props {
+    product: Product;
+}
+
+interface Product {
+    id: string;
+    title: string;
+    img?: string;
+}
+
+export const ProductCard = ({product}: Props) => {
+
+    const { counter, increaseBy } = useProducts();
+
+    return (
+        <div className={styles.productCard}>
+            <img className={styles.productImg} src={product.img ? product.img : noImage} alt="Coffe Mug" />
+
+            <span className={styles.productDescription}>{product.title}</span>
+
+            <div className={styles.buttonsContainer }>
+                <button
+                className={styles.buttonMinus}
+                onClick={() => increaseBy(-1)}
+                >
+                    -
+                </button>
+
+                <button
+                className={styles.countLabel}
+                >
+                   {counter}
+                </button>
+
+                <button
+                className={styles.buttonAdd}
+                onClick={() => increaseBy(+1)}
+                >
+                    +
+                </button>
+            </div>
+        </div>
+    )
+}
