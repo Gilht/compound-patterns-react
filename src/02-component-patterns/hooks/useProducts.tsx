@@ -11,7 +11,7 @@ export const useProducts = () => {
     }
 
     return {
-        counter,
-        increaseBy
+        increaseBy,
+        counter
     }
 }
