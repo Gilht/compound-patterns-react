@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-
-
 export const useProducts = () => {
 
     const [counter, setCounter] = useState(0)
